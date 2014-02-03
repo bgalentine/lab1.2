@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class FirstGui extends JFrame {
+public class FirstGui extends JFrame implements ActionListener {
     JButton northWestButton, southWestButton, northEastButton, southEastButton;
     
     public FirstGui(String name){
@@ -42,25 +42,36 @@ public class FirstGui extends JFrame {
         //Add 4 JButtons for first four quadrants
         northWestButton = new JButton("North West");
         contentPane.add(northWestButton);
-        //contentPane.add(new JButton("North Central Quadrant"));
+        northWestButton.addActionListener(this);
         
-        northEastButton = new JButton("NorthEast");
+        northEastButton = new JButton("North East");
         contentPane.add(northEastButton);
+        northEastButton.addActionListener(this);
         
         southWestButton = new JButton("South West");
         contentPane.add(southWestButton);
+        southWestButton.addActionListener(this);
         
         southEastButton = new JButton("South East");
         contentPane.add(southEastButton);
-        
-        //contentPane.add(new JButton("Sout West Central Quadrant"));
-        //contentPane.add(new JButton("Central Quadrant"));
-        //contentPane.add(new JButton("East Central Quadrant"));
-        
-        //contentPane.add(new JButton("South West Quadrant"));
-        //contentPane.add(new JButton("South Central Quadrant"));
-        //contentPane.add(new JButton("South East Quadrant"));
+        southEastButton.addActionListener(this);
 
+    }
+    
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() == northWestButton ){
+            NorthWestWindow nthWstWindow = NorthWestWindow ( );   
+        }
+        if(e.getSource() == northEastButton ){
+            NorthEastWindow nthEstWindow;
+            nthEstWindow = NorthEastWindow ( );
+        }
+        
+        
+        if(e.getSource() == southWestButton ){
+            SouthWestWindow secondWindow = SouthWestWindow ( );
+        }
+        
     }
 
     private static void createAndDisplayGUI() {
@@ -82,5 +93,17 @@ public class FirstGui extends JFrame {
                 createAndDisplayGUI();
             }
         });
+    }
+
+    private NorthWestWindow NorthWestWindow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private SouthWestWindow SouthWestWindow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private NorthEastWindow NorthEastWindow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
